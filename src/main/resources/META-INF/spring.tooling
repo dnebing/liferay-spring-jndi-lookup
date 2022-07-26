@@ -1,0 +1,4 @@
+# Tooling related information for the jee namespace
+http\://www.liferay.com/schema/lrjee@name=Liferay jee Namespace
+http\://www.liferay.com/schema/lrjee@prefix=lrjee
+http\://www.liferay.com/schema/lrjee@icon=com/liferay/jee/config/liferay-jee.gif
