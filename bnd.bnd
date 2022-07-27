@@ -2,7 +2,8 @@ Bundle-Name: Liferay JNDI Lookup Tag for Spring
 Bundle-SymbolicName: com.liferay.jee.jndi.lookup
 Bundle-Version: 1.0.0
 Export-Package: com.liferay.jee.gogo, \
-    com.liferay.jee.jndi
+    com.liferay.jee.jndi, \
+    com.liferay.jee.datasource.lookup
 
 
 -consumer-policy: ${replacestring;${range;[==,==]};.*,(.*)];$1}
