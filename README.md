@@ -93,13 +93,15 @@ jndi:lookup java:comp/env/jdbc/TestDB
 And if it finds the match, it will report what type of object it found:
 
 ```
-JNDI name java:comp/env/jdbc/TestDB found object class org.apache.tomcat.dbcp.dbcp2.BasicDataSource
+JNDI name java:comp/env/jdbc/TestDB found object 
+  class org.apache.tomcat.dbcp.dbcp2.BasicDataSource
 ```
 
 If it doesn't find the object, it will tell you so:
 
 ```
-Error looking up java:/comp/env/jdbc/TestDB: Name [java:/comp/env/jdbc/TestDB] is not bound in this Context. Unable to find [java:].
+Error looking up java:/comp/env/jdbc/TestDB: Name [java:/comp/env/jdbc/TestDB] 
+  is not bound in this Context. Unable to find [java:].
 ```
 
 That's all there is to it!
