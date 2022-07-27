@@ -40,6 +40,8 @@ your target environment.
 
 Use this jar as a dependency in your Spring portlet wars.
 
+## Using the Tag in Spring Context XML Files
+
 Your Spring context XML files will undergo a little change. From something like:
 
 ```xml
@@ -78,6 +80,32 @@ The new tag has all the same attributes as Spring's tag. In fact, the implementa
 is pretty much just an extension of Spring's version, but the modification uses the right class loader
 for the lookup to work under Liferay.
 
+## Using Spring Java Configuration
+
+If you're using the newer method for Spring using Java configuration and annotations, you've
+probably got a method declared like:
+
+```java
+@Bean(name = "myDataSource")
+public DataSource dataSource(@Value("${jndi.name}") String jndiName) {
+    JndiDataSourceLookup lookup = new JndiDataSourceLookup();
+    return lookup.getDataSource(jndiName);
+}
+```
+
+Well there's support in this module for that, too. Just change your code to:
+
+```java
+@Bean(name = "myDataSource")
+public DataSource dataSource(@Value("${jndi.name}") String jndiName) {
+    PortalJndiDataSourceLookup lookup = new PortalJndiDataSourceLookup();
+    return lookup.getDataSource(jndiName);
+}
+```
+
+This new method also knows how to do the class loader manipulation to complete the JNDI lookup
+successfully.
+
 ## Gogo Testing
 
 So I wanted to test my new lookup code before releasing it, so I built a handy Gogo command that
@@ -104,6 +132,10 @@ Error looking up java:/comp/env/jdbc/TestDB: Name [java:/comp/env/jdbc/TestDB]
   is not bound in this Context. Unable to find [java:].
 ```
 
+There's also the `jndi:datasource` command, taking the same argument, to test the lookup
+of a datasource using the PortalJndiDataSourceLookup implementation.
+
+---
 That's all there is to it!
 
 Enjoy!
