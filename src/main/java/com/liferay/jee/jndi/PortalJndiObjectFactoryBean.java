@@ -41,6 +41,8 @@ import org.springframework.util.ClassUtils;
  * Okay, this is an extension of Spring's JndiObjectFactoryBean. The only thing we need to do is
  * override the JndiTemplate class that our base class is using in order to change the class loader
  * during the actual jndi lookup.
+ *
+ * @author dnebing
  */
 public class PortalJndiObjectFactoryBean extends JndiObjectFactoryBean
 		implements FactoryBean<Object>, BeanFactoryAware, BeanClassLoaderAware, InitializingBean {
