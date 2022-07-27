@@ -40,7 +40,6 @@ public class JndiLookupCommand {
             System.out.println("JNDI name " + jndiName + " found object class " + jndiObject.getClass().getCanonicalName());
         } catch (NamingException e) {
             System.err.println("Error looking up " + jndiName + ": " + e.getMessage());
-            e.printStackTrace(System.err);
         }
     }
 }
