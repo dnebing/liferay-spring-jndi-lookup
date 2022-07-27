@@ -10,7 +10,9 @@ If you're a PortletMVC4Spring developer, though, you would probably love to use 
 to handle the lookup. They're super easy to use, it's basically just this in your context XML
 file:
 
-`<jee:jndi-lookup id="myDataSource" jndi-name="java:comp/env/jdbc/TestDB" resource-ref="true"/>`
+```xml
+<jee:jndi-lookup id="myDataSource" jndi-name="java:comp/env/jdbc/TestDB" resource-ref="true"/>`
+```
 
 I mean, it just can't get any easier, right?
 
@@ -22,7 +24,9 @@ Well this repository solves that problem...
 In this repository I have created a new Spring XML-compatible JNDI lookup tag. The tag is a little
 more complicated to use, the new tag is:
 
-`<lrjee:jndi-lookup id="myDataSource" jndi-name="java:comp/env/jdbc/TestDB" resource-ref="true"/>`
+```xml
+<lrjee:jndi-lookup id="myDataSource" jndi-name="java:comp/env/jdbc/TestDB" resource-ref="true"/>`
+```
 
 It will likely take you forever to swap out the namespace and learn the new syntax, right? :wink:
 
