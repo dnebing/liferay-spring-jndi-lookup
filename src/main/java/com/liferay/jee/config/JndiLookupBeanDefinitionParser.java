@@ -16,22 +16,22 @@
 
 package com.liferay.jee.config;
 
+import com.liferay.jee.jndi.PortalJndiObjectFactoryBean;
 import org.w3c.dom.Element;
 
 import org.springframework.beans.factory.config.RuntimeBeanReference;
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
 import org.springframework.beans.factory.xml.ParserContext;
-import org.springframework.jndi.JndiObjectFactoryBean;
 import org.springframework.util.StringUtils;
 
 /**
  * Simple {@link org.springframework.beans.factory.xml.BeanDefinitionParser} implementation that
- * translates {@code jndi-lookup} tag into {@link JndiObjectFactoryBean} definitions.
+ * translates {@code jndi-lookup} tag into {@link PortalJndiObjectFactoryBean} definitions.
  *
  * @author Rob Harrop
  * @author Juergen Hoeller
  * @since 2.0
- * @see JndiObjectFactoryBean
+ * @see PortalJndiObjectFactoryBean
  */
 class JndiLookupBeanDefinitionParser extends AbstractJndiLocatingBeanDefinitionParser {
 
@@ -44,7 +44,7 @@ class JndiLookupBeanDefinitionParser extends AbstractJndiLocatingBeanDefinitionP
 
 	@Override
 	protected Class<?> getBeanClass(Element element) {
-		return JndiObjectFactoryBean.class;
+		return PortalJndiObjectFactoryBean.class;
 	}
 
 	@Override
