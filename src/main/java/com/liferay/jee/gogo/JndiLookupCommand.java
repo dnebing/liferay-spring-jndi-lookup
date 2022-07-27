@@ -62,8 +62,8 @@ public class JndiLookupCommand {
                 return;
             }
 
-            System.out.println("JNDI name " + jndiName + " found datasource " + jndiObject.getClass().getCanonicalName());
-        } catch (NamingException e) {
+            System.out.println("JNDI name " + jndiName + " found datasource " + ds.getClass().getCanonicalName());
+        } catch (Exception e) {
             System.err.println("Error looking up " + jndiName + ": " + e.getMessage());
         }
     }
