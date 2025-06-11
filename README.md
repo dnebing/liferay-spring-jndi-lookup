@@ -6,6 +6,12 @@ So maybe you have seen my blog about using JNDI in Liferay:
 In the blog, I show how to do some thread context class loader changes in order to perform
 a JNDI lookup successfully as a module developer.
 
+This branch of the repository is for Liferay 7.3. It's a special branch because under 7.3,
+Liferay had not yet introduced the `shielded_container_lib` as an additional class loader,
+there was only the portal class loader to worry about.
+
+So the implementation here is slightly simpler, but otherwise everything here still applies...
+
 If you're a PortletMVC4Spring developer, though, you would probably love to use Spring's tags
 to handle the lookup. They're super easy to use, it's basically just this in your context XML
 file:

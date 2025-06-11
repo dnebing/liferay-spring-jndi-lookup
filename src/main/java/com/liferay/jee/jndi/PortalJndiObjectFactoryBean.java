@@ -16,26 +16,13 @@
 
 package com.liferay.jee.jndi;
 
-import java.lang.reflect.Method;
-import java.lang.reflect.Modifier;
 
-import javax.naming.Context;
 import javax.naming.NamingException;
 
 import com.liferay.portal.kernel.util.PortalClassLoaderUtil;
-import org.aopalliance.intercept.MethodInterceptor;
-import org.aopalliance.intercept.MethodInvocation;
 
-import org.springframework.aop.framework.ProxyFactory;
-import org.springframework.beans.SimpleTypeConverter;
-import org.springframework.beans.TypeConverter;
-import org.springframework.beans.TypeMismatchException;
 import org.springframework.beans.factory.*;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.jndi.*;
-import org.springframework.lang.Nullable;
-import org.springframework.util.Assert;
-import org.springframework.util.ClassUtils;
 
 /**
  * Okay, this is an extension of Spring's JndiObjectFactoryBean. The only thing we need to do is
@@ -49,13 +36,10 @@ public class PortalJndiObjectFactoryBean extends JndiObjectFactoryBean
 
 	@Override
 	public void afterPropertiesSet() throws IllegalArgumentException, NamingException {
-		// get the shielded class loader
-		ClassLoader shieldedClassLoader = PortalClassLoaderUtil.getClassLoader();
+		// get the portal class loader
+		ClassLoader portalClassLoader = PortalClassLoaderUtil.getClassLoader();
 
-		// get the webapp class loader from it
-		ClassLoader webappClassLoader = shieldedClassLoader.getClass().getClassLoader();
-
-		super.setBeanClassLoader(webappClassLoader);
+		super.setBeanClassLoader(portalClassLoader);
 
 		// let the superclass do its thing, it's ready to start looking things up...
 		super.afterPropertiesSet();

@@ -8,10 +8,10 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.liferay</groupId>
 	<artifactId>liferay-jee</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.0-73</version>
 
 	<properties>
-		<liferay.bom.version>7.4.13.u30</liferay.bom.version>
+		<liferay.bom.version>7.3.10.u18</liferay.bom.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>

@@ -45,11 +45,8 @@ public class PortalJndiDataSourceLookup extends JndiDataSourceLookup {
     public class PortalJndiTemplate extends JndiTemplate {
         @Override
         public Context getContext() throws NamingException {
-            // get the shielded class loader
-            ClassLoader shieldedClassLoader = PortalClassLoaderUtil.getClassLoader();
-
-            // get the webapp class loader from it
-            ClassLoader webappClassLoader = shieldedClassLoader.getClass().getClassLoader();
+            // get the portal class loader
+            ClassLoader webappClassLoader = PortalClassLoaderUtil.getClassLoader();
 
             // replace the current class loader with the webapp class loader.
             ClassLoader originalClassLoader = ClassUtils.overrideThreadContextClassLoader(webappClassLoader);
