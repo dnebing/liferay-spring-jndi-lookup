@@ -17,7 +17,8 @@ to handle the lookup. They're super easy to use, it's basically just this in you
 file:
 
 ```xml
-<jee:jndi-lookup id="myDataSource" jndi-name="java:comp/env/jdbc/TestDB" resource-ref="true"/>`
+<jee:jndi-lookup id="myDataSource"
+  jndi-name="java:comp/env/jdbc/TestDB" resource-ref="true"/>`
 ```
 
 I mean, it just can't get any easier, right?
@@ -31,7 +32,8 @@ In this repository I have created a new Spring XML-compatible JNDI lookup tag. T
 more complicated to use, the new tag is:
 
 ```xml
-<lrjee:jndi-lookup id="myDataSource" jndi-name="java:comp/env/jdbc/TestDB" resource-ref="true"/>`
+<lrjee:jndi-lookup id="myDataSource"
+  jndi-name="java:comp/env/jdbc/TestDB" resource-ref="true"/>`
 ```
 
 It will likely take you forever to swap out the namespace and learn the new syntax, right? :wink:
